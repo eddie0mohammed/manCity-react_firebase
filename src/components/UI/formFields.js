@@ -22,12 +22,47 @@ const FormFields = (props) => {
             case('input'):
                 formTemplate = (
                     <div>
+                        {formData.showLabel ? 
+                            <div className="label_inputs">
+                                {formData.config.label}
+                            </div>
+                            :null
+                        }
                         <input {...formData.config} value={formData.value}
                         onChange={(event) => props.change({event, id})}/>
                         {showError()}
                     </div>
                 )
                 break;
+            
+            case('select'):
+                formTemplate = (
+                    <div>
+                        {formData.showLabel ? 
+                            <div className="label_inputs">
+                                {formData.config.label}
+                            </div>
+                            :null
+                        }
+                        <select  value={formData.value}
+                        onChange={(event) => props.change({event, id})}
+                        >
+                            <option value="">Select One</option>
+                            {
+                                formData.config.options.map((item) => (
+                                    <option key={item.key} value={item.key}>
+                                        {item.value}
+                                    </option>
+                                ))
+                            }
+                        </select>
+                        {showError()}
+
+                    </div>
+                );
+                break;
+
+                
 
             default:
                 formTemplate = null;
