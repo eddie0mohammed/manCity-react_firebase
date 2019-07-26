@@ -4,7 +4,7 @@ import AdminLayout from '../../Hoc/AdminLayout';
 
 import FormFields from '../../UI/formFields';
 import {validate} from '../../UI/misc';
-import {firebasePlayers, firebaseMatches, firebase, firebaseDB} from '../../../firebase'; 
+import {firebasePlayers, firebase, firebaseDB} from '../../../firebase'; 
 import FileUploader from '../../UI/fileUploader';
 
 class AddEditPlayers extends Component {
